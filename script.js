@@ -55,6 +55,8 @@ async function CountrySearch(country_search) {
 
         console.log(country);
 
+        console.log('borders', (country.borders).length);
+
         let el = $('#countrieslist');
         el.html('');
 
@@ -70,9 +72,10 @@ async function CountrySearch(country_search) {
             const elAppend = `
             <div id="countryInfo" class="infoContainer container-fluid">
             <div class="row">
-            <div class="container-col col-sm">
+            <div class="container-col col-sm-6">
             <img src="${country.flag}" alt="..." class="countryInfoImage">
             </div>    
+            <div class="container-col col-sm-6">
             <div class="searchInfo">        
             <h1 class="searchTitle">${country.name}</h1><div class="SearchInfoItens"><ul><li><span class="card-text">Native Name: </span>${country.nativeName}</li>
             <li><span class="card-text">Population: </span>${country.population.toLocaleString('en-US')}</li><li><span class="card-text">Region: </span>${country.region}</li>
@@ -81,9 +84,14 @@ async function CountrySearch(country_search) {
             <li><span class="card-text">Currencies: </span>${country.currencies[0].name}</li><li><span class="card-text">Languages: </span>${country.languages[0].name}</li></ul>
             </div></div>
             <div class="searchBottom"><span class="card-text">Border Countries: <button class="btnCountries btn-primary" onclick="borderSearch('${country.borders[0].alpha2Code}')">${country.borders[0]}</button></span></div>
-          </div>
-          </div>`  
+         
+            
+            </div>
+          </div></div>`  
 
+            //<div class="searchBottom"><span class="card-text">Border Countries: <button class="btnCountries btn-primary" onclick="borderSearch('${country.borders[0].alpha2Code}')">${country.borders[0]}</button></span></div>
+         
+          
             el.html(elAppend); //prepend
     }
 

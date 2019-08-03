@@ -4,12 +4,12 @@
 }
 
 .navbar-icon {
-    margin-left: 81px;
+    margin-left: 5%;
     font-weight: 800;
 }
 
 .navbar-dark-mode {
-    margin-right: 81px;
+    margin-right: 5%;
     font-weight: bold;
     right: 0;
 }
@@ -21,6 +21,12 @@
 .content-search {
     background-color: hsl(0, 0%, 98%);
     height: 152px;
+    position: relative;
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1440px;
 }
 
 .input-group-text {
@@ -30,8 +36,8 @@
 .countrieslist {
     background-color: hsl(0, 0%, 98%);
     flex-wrap: wrap;
-    justify-content: center;
     display: flex;
+    justify-content: center;
 }
 
 .container-col {
@@ -64,8 +70,13 @@
 .search {
     position: absolute;
     margin-top: 48px;
-    margin-left: 81px;
+    margin-left: 6%;
     width: 480px;
+}
+
+.contentContainer {
+    width: 100%;
+    max-width: 1440px;
 }
 
 .btn {
@@ -73,7 +84,7 @@
     position: absolute;
     width: 200px;
     height: 56px;
-    right: 80px;
+    right: 6%;
     margin-top: 48px;
     background-color: white;
     border: none;
@@ -87,7 +98,7 @@
 }
 
 .card {
-    margin: 75px;
+    margin: 1.2%;
     width: 264px;
     height: 335px;
     box-shadow: 5px 5px 5px rgba(39, 44, 49, .07), 1px 6px 5px rgba(39, 44, 49, .04);
@@ -114,6 +125,7 @@
 
 .infoContainer {
     width: 90%;
+    padding: 0px;
 }
 
 .searchTitle {
