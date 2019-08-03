@@ -1,0 +1,154 @@
+.navbar {
+    height: 80px;
+    box-shadow: 3px 3px 3px rgba(39, 44, 49, .07), 3px 3px 3px rgba(39, 44, 49, .04);
+}
+
+.navbar-icon {
+    margin-left: 81px;
+    font-weight: 800;
+}
+
+.navbar-dark-mode {
+    margin-right: 81px;
+    font-weight: bold;
+    right: 0;
+}
+
+.far {
+    padding-right: 10px;
+}
+
+.content-search {
+    background-color: hsl(0, 0%, 98%);
+    height: 152px;
+}
+
+.input-group-text {
+    background-color: white
+}
+
+.countrieslist {
+    background-color: hsl(0, 0%, 98%);
+    flex-wrap: wrap;
+    justify-content: center;
+    display: flex;
+}
+
+.container-col {
+    flex-grow: 0;
+}
+
+.form-control {
+    height: 56px;
+}
+
+.card-description {
+    margin-top: 22px;
+}
+
+.a { 
+    color: inherit; 
+} .a:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+.info {    
+    margin-top: -15px;
+}
+
+.card-text {
+    font-weight: bold;
+}
+
+.search {
+    position: absolute;
+    margin-top: 48px;
+    margin-left: 81px;
+    width: 480px;
+}
+
+.btn {
+    color: black;
+    position: absolute;
+    width: 200px;
+    height: 56px;
+    right: 80px;
+    margin-top: 48px;
+    background-color: white;
+    border: none;
+    box-shadow: 5px 5px 5px rgba(39, 44, 49, .07), 1px 6px 5px rgba(39, 44, 49, .04);
+}
+
+.card-img-top {
+    height: 160px;
+    width: 100%;
+    object-fit: cover;    
+}
+
+.card {
+    margin: 75px;
+    width: 264px;
+    height: 335px;
+    box-shadow: 5px 5px 5px rgba(39, 44, 49, .07), 1px 6px 5px rgba(39, 44, 49, .04);
+}
+
+.countryInfoImage {
+    width: 560px;
+    height: 401px;
+    object-fit: cover;
+    margin-top: 0;
+}
+
+.btn2 {
+    color: black;
+    position: absolute;
+    width: 136px;
+    height: 40px;
+    left: 80px;
+    margin-top: 48px;
+    background-color: white;
+    border: none;
+    box-shadow: 5px 5px 5px rgba(39, 44, 49, .07), 1px 6px 5px rgba(39, 44, 49, .04);
+}
+
+.infoContainer {
+    width: 90%;
+}
+
+.searchTitle {
+    margin-top: 48px;
+    margin-left: 122px;
+}
+
+.SearchInfoItens {
+    margin-left: 80px;
+    margin-top: 38px;
+    display: flex;
+}
+
+.searchInfo {
+    display: block;
+}
+
+.rigthItens {
+    margin-left: 95px;
+}
+
+.searchBottom {
+    margin-left: 120px;
+}
+
+li {
+    list-style-type: none;
+}
+
+.btnCountries {
+    color: #454545;
+    width: 96px;
+    height: 28px;
+    margin-left: 14px;
+    border: none;
+    background-color: white;
+    box-shadow: 5px 5px 5px rgba(39, 44, 49, .07), 1px 6px 5px rgba(39, 44, 49, .04);
+}
