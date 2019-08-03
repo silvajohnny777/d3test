@@ -4,23 +4,23 @@
 }
 
 .navbar-icon {
-    margin-left: 5%;
+    margin-left: 6%;
     font-weight: 800;
 }
 
 .navbar-dark-mode {
-    margin-right: 5%;
-    font-weight: bold;
+    margin-right: 6%;
     right: 0;
 }
 
-.far {
+.icon {
     padding-right: 10px;
 }
 
+
 .content-search {
     background-color: hsl(0, 0%, 98%);
-    height: 152px;
+    height: 200px;
     position: relative;
 }
 
@@ -98,9 +98,10 @@
 }
 
 .card {
-    margin: 1.2%;
+    margin: 1%;
     width: 264px;
-    height: 335px;
+    height: 336px;
+    background-color: white;
     box-shadow: 5px 5px 5px rgba(39, 44, 49, .07), 1px 6px 5px rgba(39, 44, 49, .04);
 }
 
@@ -117,7 +118,7 @@
     width: 136px;
     height: 40px;
     left: 80px;
-    margin-top: 48px;
+    margin-top: 80px;
     background-color: white;
     border: none;
     box-shadow: 5px 5px 5px rgba(39, 44, 49, .07), 1px 6px 5px rgba(39, 44, 49, .04);
@@ -130,11 +131,10 @@
 
 .searchTitle {
     margin-top: 48px;
-    margin-left: 122px;
+    margin-left: 6%;
 }
 
 .SearchInfoItens {
-    margin-left: 80px;
     margin-top: 38px;
     display: flex;
 }
@@ -144,11 +144,11 @@
 }
 
 .rigthItens {
-    margin-left: 95px;
+    margin-left: 10%;
 }
 
 .searchBottom {
-    margin-left: 120px;
+    margin-left: 7%;
 }
 
 li {
