@@ -9,12 +9,17 @@ setTimeout(() => {
 async function getByApi(apiURL) {
     try {
         const fApi = await fetch(apiURL);
-        if(!fApi.ok) {
-            return false
-        }
-        return await fApi.json();
+            if(!fApi.ok) { // If result is not okay, notify!
+                let el = $('#countrieslist');
+                el.html('');                   
+                    const elAppend = `
+                    <h1>Something is wrong... :(</h1><p>`  
+                    el.html(elAppend);
+            } else { // else, return api
+                return await fApi.json();
+            }
     } catch(e) {
-       return false
+       return false;
     }
 }
 
@@ -51,21 +56,39 @@ async function CountrySearch(country_search) {
 
     //Executed when a card is clicked
     async function countryInfo(alpha2Code) {
-        console.log('alpha2Code',alpha2Code);
-        const apiURL = `https://restcountries.eu/rest/v2/alpha/${alpha2Code}`
+        const apiURL = `https://restcountries.eu/rest/v2/alpha/${alpha2Code}`;
         const fApi = await fetch(apiURL);
         const country = await fApi.json();
 
         console.log(country);
 
         console.log('borders', (country.borders).length);
+        console.log('languages', (country.languages).length);
+
+        let currency = []; // Saving languages into an array
+        for (let i = 0 ; i < (country.currencies).length ; i++) {
+            currency.push(country.currencies[i].name);
+        }
+
+        let languages = []; // Saving languages into an array
+        for (let i = 0 ; i < (country.languages).length ; i++) {
+            languages.push(country.languages[i].name);
+        }
+        
+        let bordersName = []; // Saving all botders into an array
+        for (let i = 0 ; i < (country.borders).length ; i++) {
+            let code2 = country.borders[i];
+            console.log(code2);
+            bordersName.push(`<button class="btnCountries btn-primary" onclick="countryInfo('`+code2 +`')"> `+country.borders[i] +`</button>`);
+        }
+        
 
         let el = $('#countrieslist');
         el.html('');
         let na = $('#content-search');
         na.html(`
             <div id="content-search" class="content-search">
-                <a href="./index.html"><button id="btnFA" class="btn2 btn-primary">
+                <a href="./"><button id="btnFA" class="btn2 btn-primary">
                 <i class="icon fas fa-arrow-left"></i>
                     Back
                 </button>
@@ -84,13 +107,13 @@ async function CountrySearch(country_search) {
             <li><span class="card-text">Population: </span>${country.population.toLocaleString('en-US')}</li><li><span class="card-text">Region: </span>${country.region}</li>
             <li><span class="card-text">Sub Region: </span>${country.subregion}</li><li><span class="card-text">Capital: </span>${country.capital}</li></ul>
             <div class="rigthItens col-sm"><ul><li><span class="card-text">Top Level Domain: </span>${country.topLevelDomain}</li>
-            <li><span class="card-text">Currencies: </span>${country.currencies[0].name}</li><li><span class="card-text">Languages: </span>${country.languages[0].name}</li></ul>
-            </div></div>
-            
+            <li><span class="card-text">Currencies: </span>${currency.join(", ")}</li><li><span class="card-text">Languages: </span>${languages.join(", ")}</li></ul>
+            </div></div>            
+            <div id="newbottomtest" class="searchBottom"><span class="card-text">Border Countries: ${bordersName.join(" ")}</span></div>
             </div>
             </div></div>`  
-            //<div class="searchBottom"><span class="card-text">Border Countries: <button class="btnCountries btn-primary" onclick="borderSearch('${country.borders[0].alpha2Code}')">${country.borders[0]}</button></span></div>
-             el.html(elAppend); //prepend
+            el.html(elAppend); //prepend
+             
     }
 
     // Change the theme to dark
@@ -147,7 +170,14 @@ async function CountrySearch(country_search) {
             elements[i].style.color = "hsl(0, 0%, 100%)";
         }
 
+        var elements = document.getElementsByClassName('btnCountries'); 
+        for(var i = 0; i < elements.length; i++){
+            elements[i].style.backgroundColor = "hsl(209, 23%, 22%)";
+            elements[i].style.color = "hsl(0, 0%, 100%)";
+        }
+
         // Changing the color of the elements by its id
+        document.body.style.backgroundColor = "hsl(207, 26%, 17%)";
         document.getElementById('countrieslist').style.backgroundColor = "hsl(207, 26%, 17%)";  
         document.getElementById('content-search').style.backgroundColor = "hsl(207, 26%, 17%)";   
         document.getElementById('navbar').style.backgroundColor = "hsl(209, 23%, 22%)";  
@@ -174,7 +204,7 @@ async function CountrySearch(country_search) {
         // Changing the color of each element
         var searchback = document.getElementsByClassName('content-search');
         for(var i = 0; i < searchback.length; i++){
-            searchback[i].style.backgroundColor = "hsl(0, 0%, 100%)";
+            searchback[i].style.backgroundColor = "hsl(0, 0%, 98%)";
         }
 
         var elements = document.getElementsByClassName('card'); 
@@ -211,6 +241,13 @@ async function CountrySearch(country_search) {
             elements[i].style.color = "black";
         }
 
+        var elements = document.getElementsByClassName('btnCountries'); 
+        for(var i = 0; i < elements.length; i++){
+            elements[i].style.backgroundColor = "hsl(0, 0%, 100%)";
+            elements[i].style.color = "black";
+        }
+
+        document.body.style.backgroundColor = "hsl(0, 0%, 98%)";
         document.getElementById('countrieslist').style.backgroundColor = "hsl(0, 0%, 98%)";     
         document.getElementById('content-search').style.backgroundColor = "hsl(0, 0%, 98%)";   
         document.getElementById('navbar').style.backgroundColor = "hsl(0, 0%, 100%)";  

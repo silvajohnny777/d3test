@@ -46,6 +46,8 @@
 
 .form-control {
     height: 56px;
+    border: none;
+    box-shadow: 5px 5px 5px rgba(39, 44, 49, .07), 1px 6px 5px rgba(39, 44, 49, .04);
 }
 
 .card-description {
@@ -160,6 +162,7 @@ li {
     width: 96px;
     height: 28px;
     margin-left: 14px;
+    margin: 1%;
     border: none;
     background-color: white;
     box-shadow: 5px 5px 5px rgba(39, 44, 49, .07), 1px 6px 5px rgba(39, 44, 49, .04);
