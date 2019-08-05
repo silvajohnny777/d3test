@@ -173,3 +173,47 @@ li {
     background-color: white;
     box-shadow: 5px 5px 5px rgba(39, 44, 49, .07), 1px 6px 5px rgba(39, 44, 49, .04);
 }
+
+@media screen and (max-width:375px) {
+
+    .card {
+        margin-top: 80px;
+    }
+
+    .dropdown {
+        position: absolute;
+        margin-left: 55%;
+        margin-top: 35%;
+        width: 10%;
+    }
+
+    .search {
+        width: 90%;
+    }
+
+    .btn2 {
+        margin-left: -15%;
+    }
+
+    .countryInfoImage {
+        width: 100%;
+        height: 100%;
+    }
+
+    .SearchInfoItens {
+        display: block;
+    }
+
+    .leftItens {
+        margin-left: -20%;
+    }
+
+    .rigthItens {
+        margin-left: -20%;
+    }
+
+    .searchBottom {
+        margin-left: 0;
+    }
+
+}
