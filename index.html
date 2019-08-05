@@ -16,35 +16,36 @@
   </head>
   <body>
     <nav id="navbar" class="navbar navbar-light">
-        <div class="nav-container container-fluid">
-        <a class="navbar-icon">Where in the world?</a>
-        <span onclick="dark()" class="navbar-dark-mode">
-            <i class="icon far fa-moon"></i>Dark Mode
-        </span>
-        </div>
+      <div class="nav-container container-fluid">
+      <a class="navbar-icon">Where in the world?</a>
+      <span onclick="dark()" class="navbar-dark-mode">
+        <i class="icon far fa-moon"></i>Dark Mode
+      </span>
+      </div>
     </nav>
     <div class="main-content">
       <div class="contentContainer container-fluid">
         <div id="content-search" class="content-search">
+          <div id="searchcontent">
         <form id="search-form" class="search">
-            <div class="input-group mb-3">               
-                <input id="country-search" type="text" style="font-family: FontAwesome;" class="form-control" placeholder="&#xF002; Search for a country..." aria-label="Username" aria-describedby="basic-addon1">
-            </div>
+          <div class="input-group mb-3">               
+            <input id="country-search" type="text" style="font-family: FontAwesome;" class="form-control" placeholder="&#xF002; Search for a country..." aria-label="Username" aria-describedby="basic-addon1">
+          </div>
         </form>
 
         <div id="dropRegion" class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Filter by region
-                </button>
-                <div id="dropdown" class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                  <button class="dropdown-item" type="button" value="africa">Africa</button>
-                  <button class="dropdown-item" type="button" value="americas">Americas</button>
-                  <button class="dropdown-item" type="button" value="asia">Asia</button>
-                  <button class="dropdown-item" type="button" value="europe">Europe</button>
-                  <button class="dropdown-item" type="button" value="oceania">Oceania</button>
-                </div>
-              </div>
-
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Filter by region
+          </button>
+          <div id="dropdown" class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <button class="dropdown-item" onclick="test()" type="button" value="africa">Africa</button>
+            <button class="dropdown-item" type="button" value="americas">Americas</button>
+            <button class="dropdown-item" type="button" value="asia">Asia</button>
+            <button class="dropdown-item" type="button" value="europe">Europe</button>
+            <button class="dropdown-item" type="button" value="oceania">Oceania</button>
+          </div>
+        </div>
+        </div>
         </div>
     <div id="countrieslist" class="countrieslist container-fluid"></div>
   </div>
@@ -52,15 +53,17 @@
   </body>
 
 <script>
-
 $("#search-form").submit(function(e)
 {
   let form = document.getElementById('country-search').value;
-  console.log('form',form);
-  CountrySearch(form);
+  CountrySearch(form, null);
   e.preventDefault();
+});  
+
+$(".dropdown-menu button").click(function(){
+  var region = $(this).text();
+  $(this).parents('.dropdown').find('.dropdown-toggle').html(region+ ' ');
+  CountrySearch(null, region);
 });
-  
-    
 </script>
 </html>

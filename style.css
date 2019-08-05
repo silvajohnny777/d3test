@@ -69,11 +69,17 @@
     font-weight: bold;
 }
 
+.card-text-specific {
+    font-weight: bold;
+        mix-blend-mode: difference;
+        color: white;
+}
+
 .search {
     position: absolute;
     margin-top: 48px;
     margin-left: 6%;
-    width: 480px;
+    width: 65%;
 }
 
 .contentContainer {

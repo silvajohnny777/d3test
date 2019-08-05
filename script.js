@@ -1,5 +1,6 @@
 let country_search = document.querySelector('#country-search');
-const region = document.querySelector('#dropRegion');
+let region = document.getElementById('#dropRegion');
+
 
 setTimeout(() => {
     CountrySearch(null);
@@ -24,7 +25,7 @@ async function getByApi(apiURL) {
 }
 
 // Define which URL the system is going to use based on the sorting options
-async function CountrySearch(country_search) {
+async function CountrySearch(country_search, region) {
     let el = $('#countrieslist');
     el.html('');
     let apiURL = 'https://restcountries.eu/rest/v2/all';
@@ -44,7 +45,7 @@ async function CountrySearch(country_search) {
             <a id="click" class="a" onclick="countryInfo('${country.alpha2Code}')" href="#">
             <div id="card" class="card" style="width: 18rem;">
             <img class="card-img-top" src="${country.flag}"alt="Card image cap">
-            <div class="card-body"><h5 id="countryName" class="card-title">${country.name}</h5> 
+            <div class="card-body"><h5 id="countryName" class="card-text">${country.name}</h5> 
             <div id="card-description" class="card-description">
             <p class="info"><span class="card-text">Population: </span>${country.population.toLocaleString('en-US') }
             </p><p class="info"><span class="card-text">Region: </span>${country.region }
@@ -60,11 +61,6 @@ async function CountrySearch(country_search) {
         const fApi = await fetch(apiURL);
         const country = await fApi.json();
 
-        console.log(country);
-
-        console.log('borders', (country.borders).length);
-        console.log('languages', (country.languages).length);
-
         let currency = []; // Saving languages into an array
         for (let i = 0 ; i < (country.currencies).length ; i++) {
             currency.push(country.currencies[i].name);
@@ -78,16 +74,15 @@ async function CountrySearch(country_search) {
         let bordersName = []; // Saving all botders into an array
         for (let i = 0 ; i < (country.borders).length ; i++) {
             let code2 = country.borders[i];
-            console.log(code2);
             bordersName.push(`<button class="btnCountries btn-primary" onclick="countryInfo('`+code2 +`')"> `+country.borders[i] +`</button>`);
         }
         
-
+        // Changes the input search to the "back" button 
         let el = $('#countrieslist');
         el.html('');
-        let na = $('#content-search');
+        let na = $('#searchcontent');
         na.html(`
-            <div id="content-search" class="content-search">
+            <div id="searchcontent">
                 <a href="./"><button id="btnFA" class="btn2 btn-primary">
                 <i class="icon fas fa-arrow-left"></i>
                     Back
@@ -95,6 +90,7 @@ async function CountrySearch(country_search) {
                 </a>
             </div>`);
                
+            // Printing one specific card
             const elAppend = `
             <div id="countryInfo" class="infoContainer container-fluid">
             <div class="row">
@@ -103,13 +99,13 @@ async function CountrySearch(country_search) {
             </div>    
             <div class="container-col col-sm-6">
             <div id="searchInfo" class="searchInfo">        
-            <h1 class="searchTitle">${country.name}</h1><div class="SearchInfoItens"><ul><li><span class="card-text">Native Name: </span>${country.nativeName}</li>
-            <li><span class="card-text">Population: </span>${country.population.toLocaleString('en-US')}</li><li><span class="card-text">Region: </span>${country.region}</li>
-            <li><span class="card-text">Sub Region: </span>${country.subregion}</li><li><span class="card-text">Capital: </span>${country.capital}</li></ul>
-            <div class="rigthItens col-sm"><ul><li><span class="card-text">Top Level Domain: </span>${country.topLevelDomain}</li>
-            <li><span class="card-text">Currencies: </span>${currency.join(", ")}</li><li><span class="card-text">Languages: </span>${languages.join(", ")}</li></ul>
+            <h1 class="card-text-specific">${country.name}</h1><div class="SearchInfoItens"><div class="leftItens col-sm"><ul><li><span class="card-text-specific">Native Name: ${country.nativeName}</span></li>
+            <li><span class="card-text-specific">Population: ${country.population.toLocaleString('en-US')}</span></li><li><span class="card-text-specific">Region: ${country.region}</span></li>
+            <li><span class="card-text-specific">Sub Region: ${country.subregion}</span></li><li><span class="card-text-specific">Capital: ${country.capital}</span></li></ul>
+            </div><div class="rigthItens col-sm"><ul><li><span class="card-text-specific">Top Level Domain: ${country.topLevelDomain}</span></li>
+            <li><span class="card-text-specific">Currencies: ${currency.join(", ")}</span></li><li><span class="card-text-specific">Languages: ${languages.join(", ")}</span></li></ul>
             </div></div>            
-            <div id="newbottomtest" class="searchBottom"><span class="card-text">Border Countries: ${bordersName.join(" ")}</span></div>
+            <div id="newbottomtest" class="searchBottom"><span class="card-text-specific">Border Countries: ${bordersName.join(" ")}</span></div>
             </div>
             </div></div>`  
             el.html(elAppend); //prepend
