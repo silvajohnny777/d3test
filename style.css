@@ -156,10 +156,6 @@
     margin-left: 10%;
 }
 
-.searchBottom {
-    margin-left: 7%;
-}
-
 li {
     list-style-type: none;
 }
@@ -173,6 +169,10 @@ li {
     border: none;
     background-color: white;
     box-shadow: 5px 5px 5px rgba(39, 44, 49, .07), 1px 6px 5px rgba(39, 44, 49, .04);
+}
+
+.leftItens {
+    margin-left: -9%
 }
 
 @media screen and (max-width:375px) {
