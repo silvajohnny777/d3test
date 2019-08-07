@@ -131,6 +131,7 @@
     background-color: white;
     border: none;
     box-shadow: 5px 5px 5px rgba(39, 44, 49, .07), 1px 6px 5px rgba(39, 44, 49, .04);
+    border-radius: 5px;
 }
 
 .infoContainer {
